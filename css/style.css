@@ -1,0 +1,242 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #8B0000; /* Vermelho escuro */
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+}
+
+#logo {
+    max-width: 150px;
+    height: auto;
+}
+
+main {
+    padding: 20px;
+    max-width: 960px;
+    margin: 20px auto;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+section h2 {
+    color: #8B0000;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Menu Section */
+#menu {
+    text-align: center;
+}
+
+#open-menu-btn {
+    background-color: #FF4500; /* Laranja avermelhado */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+#open-menu-btn:hover {
+    background-color: #E03C00;
+}
+
+#menu-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+#menu-overlay.visible {
+    display: flex;
+}
+
+#menu-image {
+    max-width: 90%;
+    max-height: 90%;
+    border: 5px solid white;
+}
+
+#close-menu-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#close-menu-btn:hover,
+#close-menu-btn:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Social Media Section */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Info Section */
+.info-item {
+    margin-bottom: 15px;
+}
+
+.info-item h3 {
+    color: #FF4500;
+    margin-bottom: 5px;
+}
+
+.address-icon {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.info-item a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+}
+
+.info-item a:hover {
+    color: #8B0000;
+}
+
+/* Contact Form Section */
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#contact-form label {
+    font-weight: bold;
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form input[type="tel"],
+#contact-form textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+#contact-form textarea {
+    resize: vertical;
+}
+
+#contact-form button {
+    background-color: #8B0000;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    align-self: flex-start;
+}
+
+#contact-form button:hover {
+    background-color: #6A0000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    main {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .social-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    #contact-form {
+        gap: 10px;
+    }
+
+    #menu-image {
+        max-width: 95%;
+        max-height: 80%;
+    }
+
+    #close-menu-btn {
+        top: 10px;
+        right: 15px;
+        font-size: 30px;
+    }
+}
+
+
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    margin-top: 30px;
+}
+
+#open-contact-btn {  
+    background-color: #FF4500; /* Laranja avermelhado */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em; 
+}  
+  
+#open-contact-btn:hover {  
+    background-color: #FF4500; /* vermelho mais escuro no hover */  
+}
+

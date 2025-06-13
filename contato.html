@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contato - Pizzaria Delícia</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" alt="Logo da Pizzaria" id="logo" />
+    </header>
+
+    <main>
+        <section id="contact">
+            <h2>Fale Conosco</h2>
+            <form id="contact-form">
+                <label for="full-name">Nome Completo:</label>
+                <input type="text" id="full-name" name="fullName" required />
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required />
+
+                <label for="phone">Telefone:</label>
+                <input type="tel" id="phone" name="phone" maxlength="15"/>
+
+                <label for="reason">Motivo do Contato:</label>
+                <textarea id="reason" name="reason" rows="5"></textarea>
+
+                <button type="submit">Enviar Mensagem</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Pizzaria Delícia. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>	
+	const tel = document.getElementById('phone') // Seletor do campo de telefone
+	tel.addEventListener('keypress', (e) => mascaraTelefone(e.target.value)) // Dispara quando digitado no campo
+	tel.addEventListener('change', (e) => mascaraTelefone(e.target.value)) // Dispara quando autocompletado o campo
+	const mascaraTelefone = (valor) => {
+		valor = valor.replace(/\D/g, "")
+		valor = valor.replace(/^(\d{2})(\d)/g, "($1) $2")
+		valor = valor.replace(/(\d)(\d{4})$/, "$1-$2")
+		tel.value = valor // Insere o(s) valor(es) no campo
+	}
+	
+    document.addEventListener('DOMContentLoaded', function() {
+        const contactForm = document.getElementById('contact-form');
+
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = {
+                fullName: document.getElementById('full-name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                reason: document.getElementById('reason').value
+            };
+
+            fetch('https://pizzaria-backend-guvf.onrender.com/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    alert(data.message);
+                    contactForm.reset();
+                } else if (data.error) {
+                    alert('Erro: ' + data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('Erro ao enviar mensagem. Tente novamente.');
+            });
+        });
+    });
+    </script>
+</body>
+</html>
